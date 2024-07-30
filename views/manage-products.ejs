@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Gérer les Produits</title>
+    <link href="/styles/styles.css" rel="stylesheet">
+</head>
+
+<body>
+    <div class="container">
+        <h1>Gérer les Produits</h1>
+
+        <h2>Ajouter un Nouveau Produit</h2>
+        <form action="/create-product" method="POST" enctype="multipart/form-data" class="form-style">
+            <div class="input-group">
+                <label>Titre:</label>
+                <input type="text" name="title" required class="input-style">
+            </div>
+            <div class="input-group">
+                <label>Description:</label>
+                <input type="text" name="description" required class="input-style">
+            </div>
+            <div class="input-group">
+                <label>URL de l'image:</label>
+                <input type="text" name="imageUrl" class="input-style">
+            </div>
+            <div class="input-group">
+                <label>Télécharger l'image:</label>
+                <input type="file" name="imageFile" class="input-style">
+            </div>
+            <div class="input-group">
+                <label>Prix:</label>
+                <input type="number" name="price" required class="input-style">
+            </div>
+            <div class="input-group">
+                <label>Quantité:</label>
+                <input type="number" name="quantity" required class="input-style">
+            </div>
+            <button type="submit" class="submit-button">Ajouter le Produit</button>
+        </form>
+
+        <h2>Produits Existants</h2>
+        
+        <!-- Champ de recherche -->
+        <div class="search-container">
+            <input type="text" id="searchInput" placeholder="Rechercher un produit..." class="input-style">
+        </div>
+
+        <ul class="product-list" id="productList">
+            <% products.forEach(function(product) { %>
+            <li class="product-item">
+                <div class="product-details">
+                    <div class="product-details-title">
+                        <span class="product-title"><%= product.title %></span>
+                        <span class="product-info"><%= product.description %></span>
+                        <span class="product-info"><%= product.price %></span>
+                        <span class="product-info"><%= product.quantity %></span>
+                        <% if (product.imageUrl) { %>
+                        <img src="<%= product.imageUrl %>" alt="<%= product.title %>" style="max-width: 100px;">
+                        <% } %>
+                        <% if (product.imageFile) { %>
+                        <img src="/uploads/<%= product.imageFile %>" alt="<%= product.title %>" style="max-width: 100px;">
+                        <% } %>
+                    </div>
+                    <div class="product-actions">
+                        <% if (role === 'admin') { %>
+                        <button onclick="toggleEditForm('<%= product.id %>')" class="edit-button">Modifier</button>
+
+                        <form action="/delete-product" method="POST">
+                            <input type="hidden" name="productId" value="<%= product.id %>">
+                            <button type="submit" class="delete-button">Supprimer</button>
+                        </form>
+                        <% } %>
+                    </div>
+                </div>
+
+                <% if (role === 'admin') { %>
+                <form id="edit-form-<%= product.id %>" action="/update-product" method="POST" class="edit-form" style="display:none;">
+                    <input type="hidden" name="productId" value="<%= product.id %>">
+                    <div class="input-group">
+                        <label>Titre:</label>
+                        <input type="text" name="title" value="<%= product.title %>" class="input-style">
+                    </div>
+                    <div class="input-group">
+                        <label>Description:</label>
+                        <input type="text" name="description" value="<%= product.description %>" class="input-style">
+                    </div>
+                    <div class="input-group">
+                        <label>URL de l'image:</label>
+                        <input type="text" name="imageUrl" value="<%= product.imageUrl %>" class="input-style">
+                    </div>
+                    <div class="input-group">
+                        <label>Prix:</label>
+                        <input type="number" name="price" value="<%= product.price %>" class="input-style">
+                    </div>
+                    <div class="input-group">
+                        <label>Quantité:</label>
+                        <input type="number" name="quantity" value="<%= product.quantity %>" class="input-style">
+                    </div>
+                    <button type="submit" class="update-button">Mettre à Jour</button>
+                </form>
+                <% } %>
+            </li>
+            <% }) %>
+        </ul>
+        <a href="/" class="home-link">Retour à l'accueil</a>
+    </div>
+
+    <script>
+        function toggleEditForm(productId) {
+            var form = document.getElementById('edit-form-' + productId);
+            if (form.style.display === 'none' || form.style.display === '') {
+                form.style.display = 'block';
+            } else {
+                form.style.display = 'none';
+            }
+        }
+
+        // Fonction de filtrage des produits
+        function filterProducts() {
+            var input, filter, ul, li, i, txtValue;
+            input = document.getElementById('searchInput');
+            filter = input.value.toUpperCase();
+            ul = document.getElementById("productList");
+            li = ul.getElementsByTagName('li');
+
+            for (i = 0; i < li.length; i++) {
+                txtValue = li[i].textContent || li[i].innerText;
+                if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                    li[i].style.display = "";
+                } else {
+                    li[i].style.display = "none";
+                }
+            }
+        }
+
+        // Ajouter un événement d'écoute sur le champ de recherche
+        document.getElementById('searchInput').addEventListener('keyup', filterProducts);
+    </script>
+</body>
+
+</html>

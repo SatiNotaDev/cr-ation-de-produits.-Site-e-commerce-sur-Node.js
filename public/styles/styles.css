@@ -1,0 +1,126 @@
+.container {
+    max-width: 600px;
+    margin: auto;
+    padding: 20px;
+    background-color: #f4f4f4;
+}
+
+h1, h2 {
+    color: #309f11;
+}
+
+.input-group {
+    margin-bottom: 10px;
+}
+
+.tab-bts {
+    display: grid;
+    grid-template-columns: 1fr 1fr; 
+    gap: 10px; 
+    width: 100%; 
+    margin-top: 20px; 
+}
+
+.tab-button {
+    width: 100%; 
+    padding: 10px 20px;
+    color: white;
+    background-color: #cc00ff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    box-sizing: border-box; 
+    text-align: center;
+}
+
+
+/* Label */
+.label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+/* Style des champs d'entrée */
+.input-style {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+/* Style des boutons */
+.submit-button, .edit-button, .delete-button, .update-button {
+    display: inline-block;
+    padding: 10px 20px;
+    color: white;
+    background-color: #007BFF;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    width: 50%; /* Les boutons occupent 50% de la largeur */
+    box-sizing: border-box; /* Prendre en compte padding et border dans la largeur */
+    text-align: center; /* Centrer le texte */
+    margin: 10px 25%; /* Centrer les boutons */
+}
+
+/* Style du bouton supprimer */
+.delete-button {
+    background-color: #dc3545;
+}
+
+/* Style du bouton éditer */
+.edit-button {
+    background-color: #ffc107;
+}
+
+/* Style du bouton mettre à jour */
+.update-button {
+    background-color: #28a745;
+}
+
+/* Détails du produit */
+.product-details {
+    background-color: #fff;
+    padding: 15px;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.product-details-title {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.product-item, .product-list {
+    list-style-type: none;
+}
+/* Titre du produit */
+.product-title {
+    font-weight: bold;
+}
+
+/* Information du produit */
+.product-info {
+    display: block;
+    color: #666;
+    font-size: 14px;
+}
+
+/* Lien de retour à la page d'accueil */
+.home-link {
+    display: block;
+    color: #007BFF;
+    text-decoration: none;
+    margin-top: 20px;
+}
+
+/* Formulaire d'édition */
+.edit-form {
+    display: none;
+    background-color: #f8f9fa;
+    padding: 20px;
+    border-radius: 5px;
+}

@@ -1,0 +1,32 @@
+[
+  {
+    "id": 1,
+    "username": "Sati",
+    "email": "notasati24@gmail.com",
+    "password": "$2b$10$Wt4dyB2Ybzc2Ki0pqJOeWefaNRDbun0PpR.0GPzM8xBrkDSDGQl3a"
+  },
+  {
+    "id": 2,
+    "username": "jknk",
+    "email": "s.saakian@it-students.fr",
+    "password": "$2b$10$OWYt9mOcFIThQ4VdNF0YuOzNNe4d975rIAtH8VzrX0LPt6d7TQ2uu"
+  },
+  {
+    "id": 3,
+    "username": "dsdf",
+    "email": "saakian@it-students.fr",
+    "password": "$2b$10$.bR/SXNKivSfG/IfOTGvwe/UDjFfMa2ZPDZRXEnoqZQ9/UKl26TAC"
+  },
+  {
+    "id": 4,
+    "username": "cuuj",
+    "email": "notasat@gmail.com",
+    "password": "$2b$10$UVZDi0Uk0GpfyPlesXcruueI1XVaF9GG3op1gnWu9pbVqeKjHlqHu"
+  },
+  {
+    "id": 5,
+    "username": "аа",
+    "email": "notati24@gmail.com",
+    "password": "$2b$10$XOOJljpis0mSOaBWOxo0Bu0yMMlLZtTJ8v/JH0OnfIRTTjkRqTvIa"
+  }
+]

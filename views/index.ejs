@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Welcome</title>
+    <link href="/styles/styles.css" rel="stylesheet">
+</head>
+
+<body>
+    <div class="container">
+        <h1>Un site e-commerce simple mais intéressant</h1>
+        <div class="tab-bts">
+            <button class="tab-button" onclick="showForm('login')">Login</button>
+            <button class="tab-button" onclick="showForm('register')">Register</button>
+        </div>
+        <div id="login-form" class="form-container" style="display:none;">
+            <h2>Login</h2>
+            <form action="/login" method="POST">
+                <div class="input-group">
+                    <label>Email:</label>
+                    <input type="email" name="email" required class="input-style">
+                </div>
+                <div class="input-group">
+                    <label>Password:</label>
+                    <input type="password" name="password" required class="input-style">
+                </div>
+                <button type="submit" class="submit-button">Login</button>
+            </form>
+        </div>
+
+        <div id="register-form" class="form-container" style="display:none;">
+            <h2>Register</h2>
+            <form action="/create-account" method="POST">
+                <div class="input-group">
+                    <label>Username:</label>
+                    <input type="text" name="username" required class="input-style">
+                </div>
+                <div class="input-group">
+                    <label>Email:</label>
+                    <input type="email" name="email" required class="input-style">
+                </div>
+                <div class="input-group">
+                    <label>Password:</label>
+                    <input type="password" name="password" required class="input-style">
+                </div>
+                <div class="input-group">
+                    <label>Confirm Password:</label>
+                    <input type="password" name="confirmPassword" required class="input-style">
+                </div>
+                <button type="submit" class="submit-button">Register</button>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        function showForm(formType) {
+            var loginForm = document.getElementById('login-form');
+            var registerForm = document.getElementById('register-form');
+            if (formType === 'login') {
+                loginForm.style.display = 'block';
+                registerForm.style.display = 'none';
+            } else {
+                loginForm.style.display = 'none';
+                registerForm.style.display = 'block';
+            }
+        }
+    </script>
+</body>
+
+</html>
